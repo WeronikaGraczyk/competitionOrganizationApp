@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/images")
@@ -21,9 +22,14 @@ public class ProductImageController {
         this.productImageService = productImageService;
     }
 
+//    @PostMapping
+//    public ProductImage saveProductImage(@RequestParam("image") MultipartFile image,
+//                                         @RequestParam("product_id") Long productId) throws IOException {
+//        return productImageService.saveProductImage(image, productId);
+//    }
     @PostMapping
-    public ProductImage saveProductImage(@RequestParam("image") MultipartFile image,
+    public List<ProductImage> saveProductImages(@RequestParam("image") List<MultipartFile> images,
                                          @RequestParam("product_id") Long productId) throws IOException {
-        return productImageService.saveProductImage(image, productId);
+        return productImageService.saveProductImages(images, productId);
     }
 }
