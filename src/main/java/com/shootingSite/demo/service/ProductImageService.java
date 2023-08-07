@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductImageService {
@@ -37,5 +39,30 @@ public class ProductImageService {
                 .build();
 
         return productImageRepository.save(productImage);
+    }
+
+    public List<ProductImage> saveProductImages(List<MultipartFile> images, Long productId) throws IOException {
+        Product product = productService.getProductById(productId);
+
+        if (product == null) {
+            throw new ResourceNotFoundException("Product doesn't exist!");
+        }
+
+        List<ProductImage> productImages = new ArrayList<>();
+
+        for (MultipartFile image : images) {
+            try {
+                ProductImage productImage = ProductImage.builder()
+                        .image(image.getBytes())
+                        .product(product)
+                        .build();
+                productImages.add(productImage);
+            } catch (IOException e) {
+                throw new IOException();
+            }
+        }
+
+        return productImageRepository.saveAll(productImages);
+
     }
 }
