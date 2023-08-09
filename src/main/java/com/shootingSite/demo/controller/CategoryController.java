@@ -2,6 +2,7 @@ package com.shootingSite.demo.controller;
 
 import com.shootingSite.demo.entity.Category;
 import com.shootingSite.demo.service.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
