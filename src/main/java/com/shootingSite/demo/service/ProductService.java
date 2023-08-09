@@ -30,7 +30,7 @@ public class ProductService {
 
     public Product saveProduct(Product product, Long categoryId) {
         Category category = categoryService.getCategoryById(categoryId);
-        if(category==null){
+        if (category == null) {
             throw new ResourceNotFoundException("Category doesn't exist!");
         }
         product.setCategory(category);
