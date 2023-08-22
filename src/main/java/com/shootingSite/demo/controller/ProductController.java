@@ -18,7 +18,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
@@ -28,12 +28,12 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getProduct(@PathVariable Long id){
+    public Product getProduct(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Long id){
+    public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
 }

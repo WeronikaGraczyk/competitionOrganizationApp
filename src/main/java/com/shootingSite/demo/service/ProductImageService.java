@@ -7,7 +7,6 @@ import com.shootingSite.demo.repository.ProductImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,6 +17,7 @@ import java.util.List;
 public class ProductImageService {
     private final ProductImageRepository productImageRepository;
     private final ProductService productService;
+
     @Autowired
     public ProductImageService(ProductImageRepository productImageRepository, ProductService productService) {
         this.productImageRepository = productImageRepository;
@@ -25,7 +25,7 @@ public class ProductImageService {
     }
 
     @PostMapping
-    public ProductImage saveProductImage(MultipartFile image,Long productId) throws IOException {
+    public ProductImage saveProductImage(MultipartFile image, Long productId) throws IOException {
 
         Product product = productService.getProductById(productId);
 

@@ -22,14 +22,14 @@ public class ProductImageController {
         this.productImageService = productImageService;
     }
 
-//    @PostMapping
+    //    @PostMapping
 //    public ProductImage saveProductImage(@RequestParam("image") MultipartFile image,
 //                                         @RequestParam("product_id") Long productId) throws IOException {
 //        return productImageService.saveProductImage(image, productId);
 //    }
     @PostMapping
     public List<ProductImage> saveProductImages(@RequestParam("image") List<MultipartFile> images,
-                                         @RequestParam("product_id") Long productId) throws IOException {
+                                                @RequestParam("product_id") Long productId) throws IOException {
         return productImageService.saveProductImages(images, productId);
     }
 }

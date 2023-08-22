@@ -1,6 +1,11 @@
 package com.shootingSite.demo.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shootingSite.demo.auth.AuthenticationRequest;
+import com.shootingSite.demo.auth.AuthenticationResponse;
+import com.shootingSite.demo.auth.RegisterRequest;
+import com.shootingSite.demo.entity.User;
+import com.shootingSite.demo.repository.UserRepository;
 import com.shootingSite.demo.token.Token;
 import com.shootingSite.demo.token.TokenRepository;
 import com.shootingSite.demo.token.TokenType;
@@ -12,11 +17,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.shootingSite.demo.auth.AuthenticationRequest;
-import com.shootingSite.demo.auth.AuthenticationResponse;
-import com.shootingSite.demo.auth.RegisterRequest;
-import com.shootingSite.demo.entity.User;
-import com.shootingSite.demo.repository.UserRepository;
 
 import java.io.IOException;
 
@@ -95,7 +95,7 @@ public class AuthenticationService {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         final String refreshToken;
         final String userEmail;
-        if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
         refreshToken = authHeader.substring(7);

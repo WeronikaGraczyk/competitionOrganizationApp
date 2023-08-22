@@ -6,20 +6,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/admin")
 public class AdminController {
     @GetMapping
-    public String get(){
+    public String get() {
         return "GET:ADMIN";
     }
 
     @PostMapping
-    public String post(){
+    public String post() {
         return "POST:ADMIN";
     }
+
     @PutMapping
-    public String put(){
+    public String put() {
         return "PUT:ADMIN";
     }
+
     @DeleteMapping
-    public String delete(){
+    public String delete() {
         return "DELETE:ADMIN";
     }
 }

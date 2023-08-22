@@ -17,15 +17,15 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> getAllCategories(){
+    public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
 
-    public Category getCategoryById(Long id){
+    public Category getCategoryById(Long id) {
         return categoryRepository.findById(id).orElse(null);
     }
 
-    public Category saveCategory(Category category){
+    public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
 }

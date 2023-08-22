@@ -39,7 +39,7 @@ public enum Role {
                 .stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.name()))
                 .toList();
-        authories.add(new SimpleGrantedAuthority("ROle:"+this.name()));
+        authories.add(new SimpleGrantedAuthority("ROle:" + this.name()));
         return authories;
     }
 }
